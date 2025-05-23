@@ -6,14 +6,24 @@
 	<label for="nameInput">Imię: </label>
 	<InputText id="nameInput" @bind-value="user.Name" placeholder="Name" />
 	<br />
+	<label for="emailInput">Adres e-mail: </label>
+	<InputText id="emailInput" @bind-Value="user.Email" placeholder="Email" />
+	<br />
+	<label for="passwordInput">Hasło: </label>
+	<InputText id="passwordInput" @bind-Value="user.Password" placeholder="Password" 
+		type="password" />
+	<br />
 	<button type="submit">Wyślij</button>
 </EditForm>
 <div>
+	<h4>Wysłane dane:</h4>
 	<p>Imię: @user.Name</p>
+	<p>Adres e-mail: @user.Email</p>
+	<p>Hasło: @user.Password</p>
 </div>
 @code {
 	//tworzymy sobie instancje naszej klasy do użycia jako model formularza
-	[SupplyParameterFromForm]
+	[SupplyParameterFromForm(FormName = "UserForm")]
 	private User user { get; set; } = new User();
 
 	private void HandleValidSubmit()
