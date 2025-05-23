@@ -1,0 +1,20 @@
+﻿@page "/form"
+<h3>Form</h3>
+<!-- Model - odwołanie do private User user -->
+<!-- FormName - jakakolwiek unikatowa nazwa dla formularza -->
+<EditForm Model="@user" FormName="UserForm" OnInvalidSubmit="@OnSubmit">	
+	<label for="nameInput">Imię: </label>
+	<input type="text" id="nameInput" placeholder="Name" />
+	<br />
+	<button type="submit">Wyślij</button>
+</EditForm>
+@code {
+	//tworzymy sobie instancje naszej klasy do użycia jako model formularza
+	private User user = new User();
+
+	private void OnSubmit()
+	{
+		// tutaj możemy dodać logikę do obsługi formularza
+		Console.WriteLine($"Imię: {user.Name}");
+	}
+}
